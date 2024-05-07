@@ -1,0 +1,15 @@
+import time
+
+print(1)
+time.sleep(2)
+print(2)
+time.sleep(2)
+print(0 / 0)
+time.sleep(2)
+print(4)
+time.sleep(2)
+print(5)
+time.sleep(2)
+print(6)
+time.sleep(2)
+print(7)
