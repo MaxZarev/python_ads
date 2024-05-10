@@ -48,12 +48,12 @@ print(f"Нужно ли сделать вывод с биржи на кошел�
 
 
 #
-# gas_price = 15
-# print(f"{gas_price} равно 10 = ", gas_price == 10)  # равно
-# print(f"{gas_price} не равно 10 =", gas_price != 10)  # не равно
-# print(f"{gas_price} больше 10 ", gas_price > 10)  # больше
-# print(f"{gas_price} меньше 10  ", gas_price < 10)  # меньше
-# print(f"{gas_price} равно или больше 10 ", gas_price >= 10)  # не равно
-# print(f"{gas_price} равно или меньше 10 ", gas_price <= 15)  # не равно
+gas_price = 15
+print(f"{gas_price} равно 10 = ", gas_price == 10)  # равно
+print(f"{gas_price} не равно 10 =", gas_price != 10)  # не равно
+print(f"{gas_price} больше 10 ", gas_price > 10)  # больше
+print(f"{gas_price} меньше 10  ", gas_price < 10)  # меньше
+print(f"{gas_price} равно или больше 10 ", gas_price >= 10)  # не равно
+print(f"{gas_price} равно или меньше 10 ", gas_price <= 15)  # не равно
 #
 # print()
