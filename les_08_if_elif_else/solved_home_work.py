@@ -115,7 +115,7 @@ import random
 import time
 
 eth_balance = random.uniform(1.0, 5.5)  # баланс ETH
-usdc_balance = random.randint(1000, 10001)  # баланс USDC
+usdc_balance = random.randint(1000, 10000)  # баланс USDC
 eth_price = random.randint(3000, 3500)  # стоимость ETH в USDC
 
 print(f"Баланс ETH: {eth_balance}, баланс USDC: {usdc_balance}, стоимость ETH в USDC: {eth_price}")

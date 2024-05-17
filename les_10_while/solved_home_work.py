@@ -21,7 +21,7 @@ import random
 print("Добро пожаловать в игру угадайка!")
 
 while True:
-    secret_number = random.randint(1, 51)
+    secret_number = random.randint(1, 50)
     print(f"Я загадал число от 1 до 50, у вас есть 5 попыток, чтобы угадать это число")
     attempt = 0
 
@@ -127,7 +127,7 @@ while wallet_number < wallets_amount:
 
     wallet_number += 1
 
-    if random.randint(0, 2) and drops_amount > 0:
+    if random.randint(0, 1) and drops_amount > 0:
         print(f"Кошелек номер: {wallet_number} получил дроп")
         wallets_with_drop += f"{wallet_number}, "
         while gas_price > 50:

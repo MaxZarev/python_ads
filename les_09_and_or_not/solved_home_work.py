@@ -47,7 +47,7 @@ symbols = '!@#$%^&*()_+-='
 len_password = int(input('Введите длину пароля от 5 до 8 символов: '))
 if len_password < 5 or len_password > 8:  # проверка на ввод числа меньше 5 или больше 8
     print('Вы ввели неверное значение')
-    len_password = random.randint(5, 9)  # генерация случайного числа от 5 до 8
+    len_password = random.randint(5, 8)  # генерация случайного числа от 5 до 8
     print(f'Длина пароля будет равна {len_password}')
 is_lower = input('Надо ли включать в пароль строчные буквы, принимая ответ "да" или "нет": ')
 is_upper = input('Надо ли включать в пароль прописные буквы, принимая ответ "да" или "нет": ')
@@ -157,9 +157,9 @@ print(password)
 
 """
 Напишите программу которая генерирует:
-случайный газ от 15 до 25 (не включительно)
-случайный баланс от 0 до 2 (не включительно)
-случайное количество транзакций в кошельке от 0 до 3 (не включительно)
+случайный газ от 15 до 25 
+случайный баланс от 0 до 2 
+случайное количество транзакций в кошельке от 0 до 3 
 
 Если баланс нулевой делаем вывод с биржи рандомной суммы от 1 до 2. 
 Используйте оператор not и прибавляем к балансу.
@@ -192,9 +192,9 @@ import random
 
 # 1 раз
 # генерация случайных значений
-gas_price = random.randint(15, 26)
+gas_price = random.randint(15, 22)
 balance = random.randint(0, 3)
-tx_counter_in_wallet = random.randint(0, 4)
+tx_counter_in_wallet = random.randint(0, 3)
 tx_counter_target = 5
 
 # выбираем активность в зависимости от цены газа
@@ -202,7 +202,7 @@ activity = 'Bridge' if gas_price < 20 else 'Swap'
 
 # если баланс нулевой, выводим с биржи случайную сумму от 1 до 2
 if not balance:
-    withdraw_amount = random.randint(1, 3) # генерация случайной суммы
+    withdraw_amount = random.randint(1, 2) # генерация случайной суммы
     balance += withdraw_amount # добавление к балансу
     print(f'Баланс нулевой, выведено {withdraw_amount} и добавлено к балансу')
     print(f"Баланс: {balance}")
@@ -227,12 +227,12 @@ else: # если активность свап
 # 2 раз
 if tx_counter_in_wallet < tx_counter_target:
     if not balance:
-        withdraw_amount = random.randint(1, 3)
+        withdraw_amount = random.randint(1, 2)
         balance += withdraw_amount
         print(f'Баланс нулевой, выведено {withdraw_amount} и добавлено к балансу')
         print(f"Баланс: {balance}")
 
-    gas_price = random.randint(15, 26)
+    gas_price = random.randint(15, 22)
     activity = 'Bridge' if gas_price < 20 else 'Swap'
 
     if activity == "Bridge":
@@ -255,12 +255,12 @@ if tx_counter_in_wallet < tx_counter_target:
     # 3 раз
     if tx_counter_in_wallet < tx_counter_target:
         if not balance:
-            withdraw_amount = random.randint(1, 3)
+            withdraw_amount = random.randint(1, 2)
             balance += withdraw_amount
             print(f'Баланс нулевой, выведено {withdraw_amount} и добавлено к балансу')
             print(f"Баланс: {balance}")
 
-        gas_price = random.randint(15, 26)
+        gas_price = random.randint(15, 25)
         activity = 'Bridge' if gas_price < 20 else 'Swap'
 
         if activity == "Bridge":
@@ -282,12 +282,12 @@ if tx_counter_in_wallet < tx_counter_target:
         # 4 раз
         if tx_counter_in_wallet < tx_counter_target:
             if not balance:
-                withdraw_amount = random.randint(1, 3)
+                withdraw_amount = random.randint(1, 2)
                 balance += withdraw_amount
                 print(f'Баланс нулевой, выведено {withdraw_amount} и добавлено к балансу')
                 print(f"Баланс: {balance}")
 
-            gas_price = random.randint(15, 26)
+            gas_price = random.randint(15, 25)
             activity = 'Bridge' if gas_price < 20 else 'Swap'
 
             if activity == "Bridge":
@@ -309,12 +309,12 @@ if tx_counter_in_wallet < tx_counter_target:
             # 5 раз
             if tx_counter_in_wallet < tx_counter_target:
                 if not balance:
-                    withdraw_amount = random.randint(1, 3)
+                    withdraw_amount = random.randint(1, 2)
                     balance += withdraw_amount
                     print(f'Баланс нулевой, выведено {withdraw_amount} и добавлено к балансу')
                     print(f"Баланс: {balance}")
 
-                gas_price = random.randint(15, 26)
+                gas_price = random.randint(15, 25)
                 activity = 'Bridge' if gas_price < 20 else 'Swap'
 
                 if activity == "Bridge":

@@ -73,13 +73,13 @@
 #
 # while len(password) < password_length:
 #
-#     if random.randint(0, 2):
+#     if random.randint(0, 1):
 #         password += random.choice(alphabet_lower)
 #
-#     if random.randint(0, 2):
+#     if random.randint(0, 1):
 #         password += random.choice(alphabet_upper)
 #
-#     if random.randint(0, 2):
+#     if random.randint(0, 1):
 #         password += random.choice(digits)
 #
 #
