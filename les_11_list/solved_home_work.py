@@ -118,6 +118,17 @@ while passwords_amount > 0:
     password_length = random.randint(length_min, length_max)
     while len(password) < password_length:
 
+        # добавляем по одному символу каждого типа
+        if is_symbols == "да":
+            password.append(random.choice(digits))
+        if is_digits == "да":
+            password.append(random.choice(digits))
+        if is_uppercase == "да":
+            password.append(random.choice(uppercase))
+        if is_lowercase == "да":
+            password.append(random.choice(lowercase))
+
+
         # выбираем рандомный тип символа
         # 0 - symbols, 1 - digits, 2 - uppercase, 3 - lowercase
         random_symbol_type = random.randint(0, 3)
