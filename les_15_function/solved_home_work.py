@@ -51,13 +51,13 @@ def password_generator(len_password, is_lat_symbol, is_numbers, is_spec_symbol):
     :return: None
     """
     password = ""  # создаем переменную для пароля
-    for i in range(len_password):  # запускаем цикл на длину пароля
-        if is_lat_symbol:  # проверяем использовать ли латинские буквы
-            password += random.choice("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")  # добавляем случайную букву
-        if is_numbers:  # проверяем использовать ли цифры
-            password += random.choice("0123456789")  # добавляем случайную цифру
-        if is_spec_symbol:  # проверяем использовать ли спец символы
-            password += random.choice("!@#$%^&*()_+-=")  # добавляем случайный спец символ
+    symbols = ["abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" if is_lat_symbol else "",
+               "0123456789" if is_numbers else "",
+               "!@#$%^&*()_+-=" if is_spec_symbol else ""]  # наборы символов
+
+    while len(password) < len_password:  # пока длина пароля меньше чем нужно
+        password += random.choice(random.choice(symbols))  # добавляем случайный символ
+
     print(password)  # печатаем пароль
 
 # задание 3
