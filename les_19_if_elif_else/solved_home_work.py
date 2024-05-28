@@ -68,7 +68,7 @@ if balance < min_balance:
     withdraw_flag = True  # флаг вывода установлен
 
 # выполнение операций в зависимости от цены на газ
-if gas_price < 25:
+if gas_price <= 25:
     print("Мост scroll запущен")
     balance -= scroll_bridge  # уменьшение баланса на стоимость моста
     scroll_bridge_flag = True  # флаг моста установлен
@@ -77,7 +77,7 @@ if gas_price < 25:
         balance -= mint_clusters  # уменьшение баланса на стоимость минта домена Clusters
         mint_clusters_flag = True  # флаг минта домена Clusters установлен
 
-elif gas_price > 25 and gas_price < 50:  # если цена на газ выше 25 и ниже 50
+elif gas_price > 25 and gas_price <= 50:  # если цена на газ выше 25 и ниже 50
     print("Свап внутри scroll запущен")
     balance -= swap  # уменьшение баланса на стоимость свапа
     swap_flag = True  # флаг свапа установлен
