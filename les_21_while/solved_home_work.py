@@ -130,7 +130,7 @@ while wallet_number < wallets_amount:
     if random.randint(0, 1) and drops_amount > 0:
         print(f"Кошелек номер: {wallet_number} получил дроп")
         wallets_with_drop += f"{wallet_number}, "
-        while gas_price > 50:
+        while gas_price >= 50:
             print(f"Цена на газ {gas_price} выше порога 20")
             time.sleep(1)
             gas_price = random.randint(15, 50)
