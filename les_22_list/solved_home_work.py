@@ -120,13 +120,13 @@ while passwords_amount > 0:
 
         # добавляем по одному символу каждого типа
         if is_symbols == "да":
-            password.append(random.choice(digits))
+            password += random.choice(symbols)
         if is_digits == "да":
-            password.append(random.choice(digits))
+            password += random.choice(digits)
         if is_uppercase == "да":
-            password.append(random.choice(uppercase))
+            password += random.choice(uppercase)
         if is_lowercase == "да":
-            password.append(random.choice(lowercase))
+            password += random.choice(lowercase)
 
 
         # выбираем рандомный тип символа
