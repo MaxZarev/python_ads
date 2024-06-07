@@ -49,7 +49,7 @@ while sum(transactions) < len(wallets) * 10:
         if balances[index_wallet] < cost:
             print(f"Кошелек {wallet} не хватает {cost - balances[index_wallet]} токенов для {activity}")
             print(f"Кошелек {wallet} получил {cost - balances[index_wallet]} токенов")
-            balances[index_wallet] += cost
+            balances[index_wallet] += balances[index_wallet] - cost
 
         print(f"Кошелек {wallet} совершает транзакцию {activity} на {cost} токенов")
         balances[index_wallet] -= cost
