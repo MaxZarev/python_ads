@@ -4,7 +4,6 @@ import ccxt
 
 from config import *
 
-
 def get_okx_fee(exchange: ccxt.okx, token_name: str, network_name: str) -> float:
     chain = f"{token_name}-{network_name}"
     exchange.load_markets()
@@ -14,58 +13,76 @@ def get_okx_fee(exchange: ccxt.okx, token_name: str, network_name: str) -> float
         token_networks = token_data["networks"]
         for network_data in token_networks.values():
             if chain == network_data["id"]:
-                return float(network_data["fee"])
+                return network_data["fee"]
     return 0.0
 
-
-def get_binance_fee(exchange: ccxt.binance, token_name: str, network_name: str) -> float:
-    exchange.load_markets()
-    currencies = exchange.currencies
-    token_data = currencies.get(token_name, {})
-    if token_data:
-        token_networks = token_data['info']['networkList']
-        for network_data in token_networks:
-            if network_data['network'] == network_name:
-                return float(network_data['withdrawFee'])
-    return 0.0
-
-
-def okx_withdraw(exchange: ccxt.okx, address: str, token_name: str, network_name: str, amount: float) -> None:
+def okx_withdraw_eth_arbitrum(address: str, amount: float) -> None:
     """
-    Вывод любых токенов, в любых сетях с биржи okx
-    :param exchange: биржа
-    :param address: адрес кошелька
-    :param token_name: название токена
-    :param network_name: название сети
-    :param amount: количество
+    Withdraw ETH from OKX to Arbitrum one
+    :param address: address of the wallet
+    :param amount: amount of withdrawal
     :return: None
     """
-    fee = get_okx_fee(exchange, token_name, network_name)
+
+    exchange = ccxt.okx({
+        'apiKey': okx_api_key,
+        'secret': okx_api_secret,
+        'password': okx_api_secret_phrase,
+    })
+    code = "ETH"
+    network = "Arbitrum One" # OKX
+    fee = get_okx_fee(exchange, code, network)
     params = {
-        "ccy": token_name,
+        "ccy": code,
         "toAddr": address,
         "amt": amount,
         "fee": fee,
         "dest": "4",
-        "chain": f"{token_name}-{network_name}"
+        "chain": f"{code}-{network}"
     }
-    tx = exchange.withdraw(token_name, amount, address, params=params)
+    tx = exchange.withdraw(code, amount, address, params=params)
     print(tx)
 
 
-def binance_withdraw(exchange: ccxt.binance, address: str, token_name: str, network_name: str, amount: float) -> None:
+def okx_withdraw_eth_optimism(address: str, amount: float) -> None:
     """
-    Вывод любых токенов, в любых сетях с биржи binance
-    :param exchange: биржа
-    :param address: адрес кошелька
-    :param token_name: название токена
-    :param network_name: название сети
-    :param amount: количество
+       Withdraw ETH from OKX to optimism
+       :param address: address of the wallet
+       :param amount: amount of withdrawal
+       :return: None
+   """
+
+    exchange = ccxt.okx({
+        'apiKey': okx_api_key,
+        'secret': okx_api_secret,
+        'password': okx_api_secret_phrase,
+    })
+    code = "ETH"
+    network = "Optimism"
+    params = {
+        "ccy": code,
+        "toAddr": address,
+        "amt": amount,
+        "fee": "0.00004",
+        "dest": "4",
+        "chain": f"{code}-{network}"
+    }
+    tx = exchange.withdraw(code, amount, address, params=params)
+    print(tx)
+
+
+def binance_withdraw_eth_arbitrum(address: str, amount: float) -> None:
+    """
+    Withdraw ETH from Binance to Arbitrum one
+    :param address: address of the wallet
+    :param amount: amount of withdrawal
     :return: None
     """
-    fee = get_binance_fee(exchange, token_name, network_name)
-    amount -= fee
-    tx = exchange.withdraw(token_name, amount, address, params={"network": network_name})
+    exchange = ccxt.binance({
+        'apiKey': binance_api_key,
+        'secret': binance_api_secret
+    })
+    tx = exchange.withdraw("ETH", amount, address, params={"network": "ARBITRUM"})
     print(tx)
 
 

@@ -9,14 +9,14 @@ from functions import get_okx_fee
 
 def main():
 
-    exchange = ccxt.okx({
-        'apiKey': okx_api_key,
-        'secret': okx_api_secret,
-        'password': okx_api_secret_phrase,
-    })
-    print(exchange.name)
-    fee = get_okx_fee(exchange, "ETH", NameNetworks.OKX.zksync)
-    print(float(fee))
+    # exchange = ccxt.okx({
+    #     'apiKey': okx_api_key,
+    #     'secret': okx_api_secret,
+    #     'password': okx_api_secret_phrase,
+    # })
+    # exchange.load_markets()
+    # pprint(exchange.currencies)
+
 
 
 
@@ -41,18 +41,20 @@ def main():
     # tx = exchange.withdraw(code, amount, address, params=params)
     # print(tx)
     # exchange.fetch_currencies()
-
-    # binance = ccxt.binance({
+    #
+    # exchange = ccxt.binance({
     #     'apiKey': binance_api_key,
     #     'secret': binance_api_secret
     # })
-    # pprint(binance.fetch_currencies())
+    # exchange.load_markets()
+    # pprint(exchange.currencies)
 
-    # bybit = ccxt.bybit({
-    #     'apiKey': bybit_api_key,
-    #     'secret': bybit_api_secret,
-    # })
-    #
+    exchange = ccxt.bybit({
+        'apiKey': bybit_api_key,
+        'secret': bybit_api_secret,
+    })
+    exchange.load_markets()
+    pprint(exchange.currencies)
     # for exchange in [okx, binance, bybit]:
     #     print(exchange.name)
     #     pprint(exchange.fetch_balance())

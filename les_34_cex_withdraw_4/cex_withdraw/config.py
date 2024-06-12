@@ -30,35 +30,12 @@ proxies = {
 class NameNetworks:
     class OKX:
         zksync = "zkSync Era"
-        starknet = "Starknet"
         arbitrum = "Arbitrum One"
-        optimism = "Optimism"
-        bsc = "BSC"
-        polygon = "Polygon"
-        avalanche = "Avalanche C-Chain"
-        fantom = "Fantom"
-        linea = "Linea"
-        base = "Base"
 
     class Binance:
-        zksync = "ZKSYNCERA"
-        starknet = "STARKNET"
+        zksync = "ZKSYNC"
         arbitrum = "ARBITRUM"
-        optimism = "OPTIMISM"
-        bsc = "BSC"
-        polygon = "MATIC"
-        avalanche = "AVAXC"
-        fantom = "FTM"
-        base = "BASE"
 
     class Bybit:
-        zksync = "ZKSYNC"
-        starknet = "STARKNET"
-        arbitrum = "ARBI"
-        optimism = "OP"
-        bsc = "BSC"
-        polygon = "MATIC"
-        avalanche = "CAVAX"
-        fantom = "FTM"
-        linea = "LINEA"
-        base = "BASE"
+        zksync = "ZKSYNC ERA"
+        arbitrum = "ARBITRUM ONE"
