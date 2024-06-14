@@ -32,15 +32,14 @@ print(f"My full name is {full_name}")
 '''
 
 total = 0
-total = total +  10
+total = total + 10
 print(total)
-total = total +  10
+total = total + 10
 print(total)
-total = total +  10
+total = total + 10
 print(total)
-total = total +  10
+total = total + 10
 print(total)
-
 
 # задание 4
 '''
@@ -56,4 +55,3 @@ print(f"Используем {lavash} и начинку из овощей и м�
 print(f"Берем овощи и мясо - {meat}!")
 print(f"Собираем шаурму из овощей и мяса - {meat} в {lavash}!")
 print(f"Шаурма готова! Приятного аппетита! Кожаный ублюдок!")
-

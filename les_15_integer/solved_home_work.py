@@ -1,5 +1,3 @@
-
-
 # задание 1
 """
 Напишите программу, которая генерирует случайное целое число между двумя введенными числами
@@ -10,7 +8,7 @@
 import random
 
 # вариант 1
-random_number = random.randint(1, 100) # генерируем случайное число
+random_number = random.randint(1, 100)  # генерируем случайное число
 print(f"Выводим с биржи на кошелек {random_number} токенов")  # выводим сообщение
 
 # вариант 2
@@ -62,7 +60,8 @@ min_number_of_transactions = 3  # минимальное количество т
 min_average_transaction_amount = 75  # минимальная средняя сумма транзакции
 min_balance = 500  # минимальный баланс
 
-print(volume_of_transactions > min_volume and number_of_transactions > min_number_of_transactions and average_transaction_amount > min_average_transaction_amount and balance > min_balance)
+print(
+    volume_of_transactions > min_volume and number_of_transactions > min_number_of_transactions and average_transaction_amount > min_average_transaction_amount and balance > min_balance)
 
 # вариант 2
 
@@ -80,7 +79,3 @@ min_balance = 500  # минимальный баланс
 eligible = volume_of_transactions > min_volume and number_of_transactions > min_number_of_transactions and average_transaction_amount > min_average_transaction_amount and balance > min_balance
 
 print("Eligible:", eligible)  # выводим результат проверки
-
-
-
-
