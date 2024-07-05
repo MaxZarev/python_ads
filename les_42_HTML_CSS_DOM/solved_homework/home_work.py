@@ -112,40 +112,24 @@ def parse_text(client: webdriver.Chrome, name_link: str) -> None:
         write_text_to_file(path, text_element.text)
 
 
-def open_menu(client: webdriver.Chrome, menu_names: list) -> None:
-    """
-    Раскрывает все пункты меню
-    :param client: драйвер
-    :param menu_names: список пунктов меню
-    :return: None
-    """
-    for menu_item in menu_names:
-        sleep_random(0.1, 0.2)
-        client.find_element(By.LINK_TEXT, menu_item).click()
-
-
 def main():
     profile_number = 947
-    menu_names = ["Overview", "Browser", "Groups", "Extensions", "Profiles", "Parameter Object", "Appendix"]  # список пунктов меню
-    excluded_link_names = menu_names.copy()  # копируем список пунктов меню
-    excluded_link_names.extend(["Powered by", "Official Home", "Sign up", "Download"])  # список ссылок которые нужно исключить
+    excluded_link_names = ["Powered by", "Official Home", "Sign up", "Download"]  # список ссылок которые нужно исключить
 
     client = start_profile(profile_number)  # открываем профиль
     client.get("https://localapi-doc-en.adspower.com/docs/overview")  # заходим на сайт
     sleep_random()  # делаем рандомную паузу
-    open_menu(client, menu_names)  # раскрываем всю меню
-    all_links = client.find_elements(By.TAG_NAME, "a")  # находим все ссылки на странице
-    links_name = []
-    for link in all_links:
-        if link.text:  # если есть текст в ссылке
-            if link.text not in excluded_link_names:  # если текста нет в исключенных ссылках
-                links_name.append(link.text)  # добавляем текст в список
 
-    for link_name in links_name:  # проходим по всем ссылкам
-        client.find_element(By.LINK_TEXT, link_name).click()  # кликаем по ссылке
-        sleep_random(1, 3)
-        parse_text(client, link_name)
-        sleep_random(1, 3)
+    all_menu_items = client.find_elements(By.TAG_NAME, "a")  # находим все ссылки на странице
+    for menu_item in all_menu_items:
+        if menu_item.text:  # если есть текст в ссылке
+            if menu_item.text not in excluded_link_names:  # если ссылки нет в исключенных ссылках
+                print(f"Click on {menu_item.text}")
+                menu_item.click()  # кликаем по ссылке
+                sleep_random(1, 3)
+                parse_text(client, menu_item.text)
+                sleep_random(1, 3)
+
 
     sleep_random()
     close_browser(profile_number)  # закрываем профиль
