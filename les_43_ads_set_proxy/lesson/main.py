@@ -9,6 +9,16 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 
 
+def get_list_from_file(path: str) -> list[str]:
+    """
+    Get list from file
+    :param path: название файла
+    :return: список строк из файла
+    """
+    with open(path, "r") as file:
+        return file.read().splitlines()
+
+
 def get_profile_id(profile_number: int) -> str:
     """
     Get profile id by profile number
@@ -22,7 +32,7 @@ def get_profile_id(profile_number: int) -> str:
         return response.json()['data']['list'][0]['user_id']
 
 
-def set_proxy(profile_number: int, proxy: str):
+def set_proxy(profile_number: int, proxy: str) -> bool:
     """
     Set proxy for profile
     :param profile_number: номер профиля в адс
@@ -46,14 +56,12 @@ def set_proxy(profile_number: int, proxy: str):
         "user_id": profile_id,
         "user_proxy_config": proxy_config
     }
-
     url = "http://local.adspower.net:50325/api/v1/user/update"
-
     response = requests.post(url, json=data, headers={"Content-Type": "application/json"})
-
     if response.status_code == 200:
-        pprint(response.json())
         return True
+    else:
+        return False
 
 
 def start_profile(profile_number: int) -> webdriver.Chrome:
@@ -91,11 +99,24 @@ def open_browser(profile_number: int):
 
 
 def main():
-    set_proxy(947, "185.149.21.78:3000:jINV9g:DXqi8PtrAp")
-    driver = start_profile(947)
-
-
+    pass
 
 
 if __name__ == '__main__':
+    # проверка прокси
+    # проверка запущен ли уже браузер
+    # закрытие лишних вкладок
+    # разворачивание браузера на весь экранф
     main()
+
+# def get_ip(driver: webdriver.Chrome) -> str:
+#     """
+#     Get current ip
+#     :param driver: драйвер браузера
+#     :return: ip адрес браузера
+#     """
+#     url = "https://api.ipify.org/?format=json"
+#     driver.get(url)
+#     time.sleep(1)
+#     current_ip_data = driver.find_element(By.TAG_NAME, "pre").text  # получаем текст из тега pre
+#     return json.loads(current_ip_data)["ip"]  # парсим json и возвращаем ip

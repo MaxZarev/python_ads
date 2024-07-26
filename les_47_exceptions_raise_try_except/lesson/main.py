@@ -188,7 +188,7 @@ def open_browser(profile_number: int) -> dict:
     :return:  dict with browser data
     """
     url = "http://local.adspower.net:50325/api/v1/browser/start"
-    parameters = {"serial_number": profile_number, "open_tabs": 1}
+    parameters = {"serial_number": profile_number, "open_tabs": 1, "ip_tab": 1}
     response = requests.get(url, params=parameters)
     if response.status_code == 200:
         return response.json()
