@@ -79,7 +79,7 @@ class Metamask:
         self.ads.click_element("//button[@data-testid='unlock-submit']")
         sleep_random(3, 5)
         self.ads.click_element("//button[@data-testid='popover-close']", 5)
-        if not self.ads.find_element("//button[@data-testid='home__nfts-tab']", 5):
+        if not self.ads.find_element("//li[@data-testid='home__nfts-tab']", 5):
             raise Exception("Metamask auth failed")
 
     def import_wallet(self):
