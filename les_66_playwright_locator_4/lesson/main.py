@@ -1,5 +1,3 @@
-import time
-
 import requests
 from playwright.sync_api import sync_playwright
 import random
@@ -23,7 +21,7 @@ def main():
     page = context.pages[0]
 
     page.set_default_timeout(5000)
-    page.goto('https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_optgroup', timeout=30000)
+    page.goto('https://pancakeswap.finance/swap?chain=polygonZkEVM', timeout=30000)
 
     # поиск элементов с помощью xpath
     button = page.locator('//button[@data-dd-action-name="Select currency"]').first
@@ -147,83 +145,6 @@ def main():
 
     # проверка на скрытость элемента
     button.is_hidden()
-
-    # клик по элементу
-    button.click()
-    # после кликов нужны паузы или ожидания появления целевых элементов
-
-    # двойной клик
-    button.dblclick()
-
-    textbox = page.get_by_role('textbox').first
-
-    # запись значения в текстовое поле
-    number = 12345
-    textbox.fill(str(number))
-
-    # очистить текстовое поле от текста
-    textbox.clear()
-
-    # нажатие кнопки на клавиатуре
-    textbox.press('Enter')
-
-    # ввод текста с имитацией ввода с клавиатуры
-    textbox.press_sequentially('123456')
-
-    # включение чекбокса
-    page.get_by_role('checkbox').first.check()
-
-    # выключение чекбокса
-    page.get_by_role('checkbox').first.uncheck()
-
-    # фокус на элементе
-    button.focus()
-
-    # навести мышку на элемент
-    button.hover()
-
-    # убрать фокус с элемента
-    button.blur()
-
-    # скролл до нужного элемента
-    button.scroll_into_view_if_needed()
-
-    # выбор селектора
-    page.get_by_role('combobox').select_option(value='Значение 1')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
